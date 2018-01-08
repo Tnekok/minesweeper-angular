@@ -1,3 +1,13 @@
-<p>
-  game works!
-</p>
+<div class="game">
+    <h1 *ngIf="appService.won" class="gameoverText winColor animated bounceInRight"><mat-icon class="winColor iconSize">thumb_up</mat-icon> Win!</h1>
+    <button md-raised-button color="primary" *ngIf="appService.won" class="restartButon animated bounceInRight" (click)="restartClicked($event)">Restart</button>
+    <h1 *ngIf="appService.lost" class="gameoverText loseColor animated bounceInRight"><mat-icon class="loseColor iconSize">thumb_down</mat-icon> Loss!</h1>
+    <button md-raised-button color="primary" *ngIf="appService.lost" class="restartButon animated bounceInRight" (click)="restartClicked($event)">Restart</button>
+    <div id="mineBackground" [ngStyle]="{'width': (appService.width * 63.5) + 'px'}">
+        <ng-container *ngFor="let row of appService.space">
+            <ng-container *ngFor="let mineBox of row">
+                <app-mine [mine]="mineBox.mine" [revealed]="mineBox.revealed" [danger]="mineBox.danger" (click)="boxClicked($event, mineBox.i, mineBox.j)"></app-mine>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

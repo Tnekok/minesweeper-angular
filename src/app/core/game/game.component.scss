@@ -1,0 +1,33 @@
+.game {
+    .restartButon {
+        position: fixed; 
+        top: 150px; 
+        right: 10px;
+        z-index: 999;
+    }
+    .gameoverText {
+        position: fixed; 
+        top: 50px; 
+        right: 10px;
+        z-index: 999;
+        font-size: 40px;
+        &.winColor {
+            color: #1b5e20;
+        }
+        &.loseColor {
+            color: #b71c1c;
+        }
+    }
+    .iconSize {
+        font-size: 30px;
+    }
+    #mineBackground {
+        background-color: rgba(113, 203, 238, 0.247);
+        margin: 0px auto;
+        padding: 20px;
+    }
+}
+
+
+
+

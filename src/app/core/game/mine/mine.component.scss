@@ -1,0 +1,49 @@
+.mine {
+  &.mine-box {
+    bottom: 0px;
+    box-shadow: rgba(0, 0, 0, 0.137255) 0px 2px 2px 0px, rgba(0, 0, 0, 0.117647) 0px 1px 5px 0px, rgba(0, 0, 0, 0.2) 0px 3px 3px -2px;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    display: inline-block;
+    height: 56px;
+    left: 0px;
+    letter-spacing: 0.5px;
+    position: relative;
+    right: 0px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    top: 0px;
+    vertical-align: middle;
+    width: 56px;
+    z-index: 1;
+    column-rule-color: rgb(255, 255, 255);
+    perspective-origin: 28px 28px;
+    transform-origin: 28px 28px;
+    background: rgb(27, 94, 32) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(255, 255, 255);
+    border-radius: 50% 50% 50% 50%;
+    font: normal normal normal normal 14.5px / 54px Roboto, sans-serif;
+    outline: rgb(255, 255, 255) none 0px;
+    overflow: hidden;
+    transition: all 0.3s ease 0s;
+  }
+  
+  &.mine-red {
+    background-color: #f44336;
+  }
+  
+  &.mine-green {
+    background-color: #2eb637;
+  }
+  
+  &.mine-brown {
+    background-color: #7a7878;
+  }
+  
+  i {
+    font-weight: bold
+  }
+
+}

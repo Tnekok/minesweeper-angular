@@ -1,3 +1,5 @@
-<p>
-  mine works!
-</p>
+<a class="mine" [ngClass]="{'mine-box': true, 'mine-red': revealed && mine, 'mine-brown': revealed && !mine, 'mine-green': !revealed}">
+    <i *ngIf="revealed">
+        {{ danger }}
+    </i>
+</a>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-mine',
@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MineComponent implements OnInit {
 
+  @Input() i: number;
+  @Input() j: number;
+  @Input() danger = 0;
+  @Input() mine = false;
+  @Input() revealed = false;
+
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
 }
