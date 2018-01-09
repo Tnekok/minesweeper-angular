@@ -11,15 +11,15 @@ export class AppService {
     public lost: boolean;
     public won: boolean;
 
-    private minesCount: number;
-    private revealedCount: number;
+    public revealedCount: number;
+    public minesCount: number;
 
     constructor() {
         const dimension = 10;
         this.restart(dimension, dimension);
     }
 
-    public restart(width: number, height: number): void {
+    restart(width: number, height: number): void {
         this.width = width;
         this.height = height;
         this.space = [];
@@ -33,7 +33,7 @@ export class AppService {
         this.generateDanger();
     }
 
-    public reveal(i: number, j: number): void {
+    reveal(i: number, j: number): void {
         if (!this.lost && !this.won) {
             if (this.space[i][j].getMine()) {
                 this.space[i][j].setRevealed(true);
