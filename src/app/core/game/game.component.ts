@@ -9,15 +9,15 @@ import { AppService } from '../../shared/services/app.service';
 })
 export class GameComponent implements OnInit {
 
-  constructor(public appService: AppService) { this.appService = appService; }
+  constructor(public appService: AppService) { }
 
   ngOnInit() { }
 
-  boxClicked(event: EventEmitter<any>, i: number, j: number): void {
+  boxClicked(i: number, j: number): void {
     this.appService.reveal(i, j);
   }
 
-  restartClicked(event: EventEmitter<any>): void {
+  restartClicked(): void {
     this.appService.restart(this.appService.width, this.appService.height);
   }
 
