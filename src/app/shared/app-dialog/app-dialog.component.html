@@ -1,0 +1,7 @@
+<h2 mat-dialog-title [ngClass]="{ 'winColor': data.image === 'thumb_up', 'loseColor': data.image === 'thumb_down'}">{{ data.event }}</h2>
+<mat-dialog-content>
+  <mat-icon class="iconSize">{{ data.image }}</mat-icon>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="onCloseDialog()">Restart Game</button>
+</mat-dialog-actions>

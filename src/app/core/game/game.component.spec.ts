@@ -1,15 +1,29 @@
+import { NgModule } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule, MatDialogModule } from '@angular/material';
+import { Subject } from 'rxjs/Subject';
 
 import { GameComponent } from './game.component';
 import { MineComponent } from './mine/mine.component';
+import { AppDialogComponent } from '../../shared/app-dialog/app-dialog.component';
 
 import { AppService } from '../../shared/services/app.service';
+import { SharedModule } from '../../shared/shared.module';
 
 class MockedService {
   reveal = jasmine.createSpy('reveal');
   restart = jasmine.createSpy('restart');
+  isGamestatusChanged: Subject<{ isWon: boolean, isLost: boolean }> = new Subject<{ isWon: boolean, isLost: boolean }>();
 }
+
+@NgModule({
+  imports: [ MatIconModule, MatDialogModule, CommonModule, BrowserAnimationsModule ],
+  declarations: [ AppDialogComponent ],
+  entryComponents: [ AppDialogComponent ]
+})
+export class FakeTestDialogModule { }
 
 describe('GameComponent', () => {
   let component: GameComponent;
@@ -18,7 +32,7 @@ describe('GameComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ GameComponent, MineComponent ],
-      imports: [ MatIconModule ],
+      imports: [ MatIconModule, FakeTestDialogModule ],
       providers: [
         { provide: AppService, useClass: MockedService }
       ]

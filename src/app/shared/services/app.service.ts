@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Mine } from '../models/mine';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class AppService {
 
+    public isGamestatusChanged: Subject<{ isWon: boolean, isLost: boolean }> = new Subject<{ isWon: boolean, isLost: boolean }>();
     public space: Mine[][];
     public width: number;
     public height: number;
@@ -31,6 +33,7 @@ export class AppService {
         this.generateMineBoxes();
         this.generateMines();
         this.generateDanger();
+        this.emitStatus({ isWon: this.won, isLost: this.lost });
     }
 
     reveal(i: number, j: number): void {
@@ -38,13 +41,19 @@ export class AppService {
             if (this.space[i][j].getMine()) {
                 this.space[i][j].setRevealed(true);
                 this.lost = true;
+                this.emitStatus({ isWon: false, isLost: true });
                 return;
             }
             this.expand(i, j);
             if (this.revealedCount === this.width * this.height - this.minesCount) {
                 this.won = true;
+                this.emitStatus({ isWon: true, isLost: false });
             }
         }
+    }
+
+    emitStatus(status) {
+        this.isGamestatusChanged.next(status);
     }
 
     private generateMineBoxes(): void {
