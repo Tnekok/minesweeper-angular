@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatIconModule, MatDialogModule } from '@angular/material';
+import { MatIconModule, MatDialogModule, MatButtonModule } from '@angular/material';
 import { Subject } from 'rxjs/Subject';
 
 import { GameComponent } from './game.component';
@@ -19,7 +19,7 @@ class MockedService {
 }
 
 @NgModule({
-  imports: [ MatIconModule, MatDialogModule, CommonModule, BrowserAnimationsModule ],
+  imports: [ MatButtonModule, MatIconModule, MatDialogModule, CommonModule, BrowserAnimationsModule ],
   declarations: [ AppDialogComponent ],
   entryComponents: [ AppDialogComponent ]
 })
